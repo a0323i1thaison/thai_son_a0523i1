@@ -40,7 +40,7 @@ public class QuadraticEquation {
         int  b = scanner.nextInt();
         System.out.println(" nhập vào phần tử c");
         int  c = scanner.nextInt();
-        ss4_class_OOP.bai_tap.QuadraticEquation equation = new ss4_class_OOP.bai_tap.QuadraticEquation(a,b,c );
+        QuadraticEquation equation = new QuadraticEquation(a,b,c );
         System.out.println(equation.calculateRoot());
     }
 }
