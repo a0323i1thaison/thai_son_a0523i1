@@ -27,7 +27,7 @@ public class PhoneService implements IPhoneService {
         System.out.println("nhập tên");
         String name = scanner.nextLine();
         System.out.println("nhập giá tiền sản phẩm ");
-        double money = Integer.parseInt(scanner.nextLine());
+        int money = Integer.parseInt(scanner.nextLine());
         System.out.println(" nhập mô tả sản phẩm ");
         String describe = scanner.nextLine();
         Phone phone = new Phone(id, name, money,describe );

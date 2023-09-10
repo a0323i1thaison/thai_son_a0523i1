@@ -74,7 +74,7 @@ public class PhoneRepository implements IPhoneRepository {
             editphone.setName(newName);
 
             System.out.print("Giá sản phẩm: ");
-            float newMoney = scanner.nextFloat();
+            int newMoney = scanner.nextInt();
             editphone.setMoney(newMoney);
 
             System.out.print("Mô Tả sản phẩm: ");

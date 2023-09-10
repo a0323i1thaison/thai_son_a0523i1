@@ -3,13 +3,13 @@ package ss8_mvc.model;
 public  class Phone{
     private int id ;
     private String name ;
-    private double money ;
+    private int money ;
     private String describe;
 
     public Phone() {
     }
 
-    public Phone(int id ,String name, double money , String describe) {
+    public Phone(int id ,String name, int money , String describe) {
         this.id = id ;
         this.name = name;
         this.money = money;
@@ -32,11 +32,11 @@ public  class Phone{
         this.describe = describe;
     }
 
-    public double getMoney() {
+    public int getMoney() {
         return money;
     }
 
-    public void setMoney(double money) {
+    public void setMoney(int money) {
         this.money = money;
     }
 
