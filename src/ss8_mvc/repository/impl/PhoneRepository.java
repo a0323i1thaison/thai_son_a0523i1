@@ -2,88 +2,68 @@ package ss8_mvc.repository.impl;
 
 import ss8_mvc.model.Phone;
 import ss8_mvc.repository.IPhoneRepository;
+import ss8_mvc.util.ReadingWritingFile;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.List;
 
 public class PhoneRepository implements IPhoneRepository {
-    private static ArrayList<Phone> phoneArrayList = new ArrayList<>();
+    private final String PATH_PHONE = "D:\\codegym\\module2\\module2_a0523i1\\src\\ss8_mvc\\data\\phone.csv";
 
-    static {
-        phoneArrayList.add(new Phone(1, "samsum", 12000000, "sản phẩm sản xuất hàn quốc "));
-        phoneArrayList.add(new Phone(2, "iphone", 20000000, "sản phẩm sản xuất tại mỹ"));
-        phoneArrayList.add(new Phone(3, "nokia", 7000000, " sản phẩm sản xuất tại nhật bản "));
-    }
     @Override
-    public ArrayList<Phone> getListPhone() {
-        return phoneArrayList;
+    public List<Phone> getListPhone() {
+        List<Phone> phoneList = new ArrayList<>();
+        // đọc  file ở đây hoặc kết nối DB
+        List<String> stringList = ReadingWritingFile.readCSVFile(PATH_PHONE);
+        // chuyển thành list student
+        String[] arr = null;
+        for (String string: stringList) {
+            arr = string.split(",");
+            Phone phone = new Phone();
+            phoneList.add(phone);
+        }
+        return phoneList;
         }
 
     @Override
     public void addPhone(Phone phone) {
-        phoneArrayList.add(phone);
+        List<String> stringList = new ArrayList<>();
+        stringList.add(phone.getInfoToCSV());
+        ReadingWritingFile.writeToCSV(PATH_PHONE,stringList,true);
     }
 
     @Override
     public void deletePhoneById(int id) {
-        Phone deletephone = null;
-        for (Phone phone : phoneArrayList) {
-            if (phone.getId() == id) {
-                deletephone = phone;
+        List<Phone> phoneList = getListPhone();
+        for (int i = 0 ; i <phoneList.size() ; i++) {
+            if (phoneList.get(i).getId()==id){
+                phoneList.remove(i);
                 break;
             }
         }
-        if ( deletephone!=null){
-            phoneArrayList.remove(deletephone);
-            System.out.println("đã xóa sản phẩm có ID " + id);
-        }else{
-            System.out.println(id+": không hợp lệ ");
+        List<String> stringList = new ArrayList<>();
+        for (Phone phone: phoneList) {
+            stringList.add(phone.getInfoToCSV());
         }
+        ReadingWritingFile.writeToCSV(PATH_PHONE ,stringList,false);
+
     }
 
     @Override
-    public void searchPhoneByName(String name) {
-        boolean found = false;
-        for (Phone phone : phoneArrayList) {
-            if (phone.getName().equals(name)) {
-                found = true;
-                break;
+    public List<Phone> searchPhoneByName(String name) {
+        List<Phone> phoneList = getListPhone();
+        List<Phone> searchList = new ArrayList<>();
+        for (int i = 0; i < phoneList.size(); i++) {
+            if (phoneList.get(i).getName().contains(name)){
+                searchList.add(phoneList.get(i));
             }
         }
-        if (found) {
-            System.out.println("Sản phẩm có trong danh sách.");
-        } else {
-            System.out.println("Sản phẩm không có trong danh sách.");
-        }
+        return searchList;
     }
+
+
     @Override
     public void editPhoneById(int id) {
-        Phone editphone = null;
-        for (Phone phone : phoneArrayList) {
-            if (phone.getId() == id) {
-                editphone = phone;
-                break;
-            }
-        }
-        if ( editphone!=null){
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Nhập thông tin mới cho sản phẩm có ID " + id + ":");
 
-            System.out.print("Tên sản phẩm: ");
-            String newName = scanner.nextLine();
-            editphone.setName(newName);
-
-            System.out.print("Giá sản phẩm: ");
-            int newMoney = scanner.nextInt();
-            editphone.setMoney(newMoney);
-
-            System.out.print("Mô Tả sản phẩm: ");
-            String newDescribe = scanner.nextLine();
-            editphone.setDescribe(newDescribe);
-
-            System.out.println("Thông tin sản phẩm đã được cập nhật.");
-        }else{
-            System.out.println(id+": không hợp lệ ");
-        }
     }
 }

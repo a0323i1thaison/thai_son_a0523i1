@@ -55,4 +55,8 @@ public  class Phone{
                 " Giá Tiền :"+ money + "," +
                 " Mô Tả Sản Phẩm :" + describe + " \n " ;
     }
+
+    public String getInfoToCSV() {
+        return id + "," + name + "," + money + "," +  describe ;
+    }
 }

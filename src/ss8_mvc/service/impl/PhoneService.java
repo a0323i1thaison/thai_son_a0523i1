@@ -5,13 +5,14 @@ import ss8_mvc.repository.IPhoneRepository;
 import ss8_mvc.repository.impl.PhoneRepository;
 import ss8_mvc.service.IPhoneService;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class PhoneService implements IPhoneService {
     private static IPhoneRepository phoneRepository = new PhoneRepository();
     @Override
     public void display() {
-        ArrayList<Phone> phones = phoneRepository.getListPhone();
+        List<Phone> phones = phoneRepository.getListPhone();
         for ( int i = 0 ; i < phones.size();i++){
             if ( phones != null){
                 System.out.println((1 + i) +"," + phones +" \n "  ) ;

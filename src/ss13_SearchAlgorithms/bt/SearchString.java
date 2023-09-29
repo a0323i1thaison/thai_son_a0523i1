@@ -8,7 +8,7 @@ public class SearchString {
         System.out.println(" nhập vào một chuỗi ");
         String str = scanner.nextLine();
         String [] substrings = str.split(" ");
-        System.out.println(" chuôix được sắp xếp lại như sau : ");
+        System.out.println(" chuỗi được sắp xếp lại như sau : ");
         for ( String substring : substrings){
             System.out.println(substring);
         }

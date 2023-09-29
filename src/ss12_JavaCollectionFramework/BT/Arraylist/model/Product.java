@@ -6,7 +6,7 @@ public class Product {
     private int money ;
 
 
-    public Product() {
+    public Product(int id, String name, String brand, double money, String describe) {
     }
     public Product(int id, String name , int money) {
         this.id = id;
