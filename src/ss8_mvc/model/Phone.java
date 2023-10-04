@@ -6,7 +6,7 @@ public  class Phone{
     private int money ;
     private String describe;
 
-    public Phone() {
+    public Phone(String[] arr) {
     }
 
     public Phone(int id ,String name, int money , String describe) {
@@ -50,10 +50,10 @@ public  class Phone{
 
     @Override
     public String toString() {
-        return  "ID :" + id + "," +
-                " Name :"+ name + ","+
-                " Giá Tiền :"+ money + "," +
-                " Mô Tả Sản Phẩm :" + describe + " \n " ;
+        return  "ID :" + this.id + "," +
+                " Name :"+ this.name + ","+
+                " Giá Tiền :"+ this.money + "," +
+                " Mô Tả Sản Phẩm :" + this.describe + " \n " ;
     }
 
     public String getInfoToCSV() {

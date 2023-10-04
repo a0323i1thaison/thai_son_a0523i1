@@ -4,7 +4,6 @@ import ss8_mvc.model.Phone;
 import ss8_mvc.repository.IPhoneRepository;
 import ss8_mvc.repository.impl.PhoneRepository;
 import ss8_mvc.service.IPhoneService;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,8 +14,7 @@ public class PhoneService implements IPhoneService {
         List<Phone> phones = phoneRepository.getListPhone();
         for ( int i = 0 ; i < phones.size();i++){
             if ( phones != null){
-                System.out.println((1 + i) +"," + phones +" \n "  ) ;
-                break;
+                System.out.println((1 + i) +"," + phones.get(i) +" \n "  ) ;
             }
         }
     }

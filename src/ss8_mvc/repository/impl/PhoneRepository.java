@@ -16,10 +16,10 @@ public class PhoneRepository implements IPhoneRepository {
         // đọc  file ở đây hoặc kết nối DB
         List<String> stringList = ReadingWritingFile.readCSVFile(PATH_PHONE);
         // chuyển thành list student
-        String[] arr = null;
+        String[] arr ;
         for (String string: stringList) {
             arr = string.split(",");
-            Phone phone = new Phone();
+            Phone phone = new Phone(arr);
             phoneList.add(phone);
         }
         return phoneList;
@@ -60,8 +60,6 @@ public class PhoneRepository implements IPhoneRepository {
         }
         return searchList;
     }
-
-
     @Override
     public void editPhoneById(int id) {
 
