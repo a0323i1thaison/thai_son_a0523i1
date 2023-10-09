@@ -4,5 +4,7 @@ public interface IProductService {
     public void add();
     public void edit();
     public void delete();
+    public void search();
     public void display();
+
 }

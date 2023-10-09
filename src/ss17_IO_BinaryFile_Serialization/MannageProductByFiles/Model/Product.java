@@ -8,10 +8,7 @@ public class Product {
     private String describe;
 
 
-    public Product() {
-    }
-
-    public Product(int id , String name , String brand , double money , String describe) {
+    public Product(int id, String name, String brand, double money, String describe) {
         this.id= id ;
         this.name = name ;
         this.brand = brand;
@@ -69,4 +66,8 @@ public class Product {
                 ", money =  " + money +
                 ", describe =  " + describe + '\'';
     }
+    public String getToCSV() {
+        return id + "," + name + "," + brand + "," + money + "," + describe ;
+    }
+
 }
