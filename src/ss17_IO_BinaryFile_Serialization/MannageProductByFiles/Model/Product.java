@@ -4,11 +4,11 @@ public class Product {
     private int id ;
     private String name ;
     private String brand ;
-    private double money ;
+    private int money ;
     private String describe;
 
 
-    public Product(int id, String name, String brand, double money, String describe) {
+    public Product(int id, String name, String brand, int money, String describe) {
         this.id= id ;
         this.name = name ;
         this.brand = brand;
@@ -41,11 +41,11 @@ public class Product {
         this.describe = describe;
     }
 
-    public double getMoney() {
+    public int getMoney() {
         return money;
     }
 
-    public void setMoney(double money) {
+    public void setMoney(int money) {
         this.money = money;
     }
 

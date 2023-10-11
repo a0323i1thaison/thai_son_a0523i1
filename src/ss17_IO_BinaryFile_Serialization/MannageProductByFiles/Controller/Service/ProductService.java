@@ -20,10 +20,10 @@ public class ProductService implements IProductService {
         int id = Integer.parseInt(scanner.nextLine());
         System.out.println("nhập tên");
         String name = scanner.nextLine();
-        System.out.println(" nhâpj nhãn hiệu sản phẩm ");
+        System.out.println(" nhập nhãn hiệu sản phẩm ");
         String brand = scanner.nextLine();
         System.out.println("nhập giá tiền sản phẩm ");
-        double money = scanner.nextDouble();
+        int money = Integer.parseInt(scanner.nextLine());
         System.out.println(" nhập mô tả sản phẩm ");
         String describe = scanner.nextLine();
         Product product = new Product(id,name,brand,money,describe);
@@ -56,8 +56,8 @@ public class ProductService implements IProductService {
     public void search() {
         Scanner scanner = new Scanner(System.in);
         System.out.println(" nhập vào tên sản phẩm cần tìm kiếm");
-        String searchname = scanner.nextLine();
-        productreponsitory.searchProductByName(searchname);
+        String searchName = scanner.nextLine();
+        productreponsitory.searchProductByName(searchName);
     }
     @Override
     public void display() {

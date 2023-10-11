@@ -13,13 +13,14 @@ public class main {
         boolean flag = true;
         do {
             System.out.println("Chọn chức năng :");
-            System.out.println(
-                    "\n 1.Add" +
-                            "\n 2.Display" +
-                            "\n 3.Delete" +
-                            "\n 4.Search" +
-                            "\n 5.edit" +
-                            " \n 6. Exit "
+            System.out.println (    " ++++MENU++++"+
+                                  "\n | 1.Add    |" +
+                                  "\n | 2.Display|" +
+                                  "\n | 3.Delete |" +
+                                  "\n | 4.Search |" +
+                                  "\n | 5.edit   |" +
+                                  "\n | 6. Exit  |"+
+                                  "\n ++++++++++++"
             );
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose){

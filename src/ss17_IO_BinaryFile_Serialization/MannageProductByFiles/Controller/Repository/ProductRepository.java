@@ -81,7 +81,7 @@ public class ProductRepository implements ProductInterface{
         String[] arr = null ;
         for (String string: stringList) {
             arr = string.split(",");
-            Product product = new Product(Integer.parseInt(arr[0]),arr[1],arr[2], Double.parseDouble(arr[3]),arr[4]);
+            Product product = new Product(Integer.parseInt(arr[0]),arr[1],arr[2], Integer.parseInt(arr[3]),arr[4]);
             productList.add(product);
         }
         return productList;
