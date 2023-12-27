@@ -102,8 +102,14 @@ public class viewer {
     }
     ///// xóa /////
     public String  inputIdToDeletet(){
-        System.out.println("Nhập id cần xoá");
-        String id = scanner.nextLine();
+        String id = null;
+        do {
+            System.out.println("nhập ID của giáo viên cần xóa ");
+            id = scanner.nextLine();
+            if (!Regex.checkRegexIdPerson(id)) {
+                System.err.println("vui lòng nhập đúng định dạng của ID (1234)");
+            }
+        } while (!Regex.checkRegexIdPerson(id) || checkId(id));
         return id;
     }
 ///// hiển thị ////
@@ -183,9 +189,9 @@ public class viewer {
         List<Teacher> teacherList = teacherController.display();
         for (Teacher teacher : teacherList) {
             if (String.valueOf(teacher.getId()).equals(String.valueOf(teacher.getId()))) {
-                System.out.println("Id đã tồn tại");
                 return false;
             }
+            System.out.println("Id đã tồn tại");
         }
         return true;
     }
@@ -198,7 +204,7 @@ public class viewer {
             if (!Regex.checkRegexIdPerson(id)) {
                 System.err.println("vui lòng nhập đúng định dạng của ID (1234)");
             }
-        } while (Regex.checkRegexIdPerson(id) == checkId(id));
+        } while (!Regex.checkRegexIdPerson(id) || checkId(id));
         return id;
     }
 
@@ -210,7 +216,7 @@ public class viewer {
             if (!Regex.checkRegexIdPerson(id)) {
                 System.err.println("làm ơn nhập đúng định dạng của ID ( 1234 )");
             }
-        } while (Regex.checkRegexIdPerson(id) == checkId(id));
+        } while (!Regex.checkRegexIdPerson(id) || checkId(id));
         return id;
     }
     public String inputName() {

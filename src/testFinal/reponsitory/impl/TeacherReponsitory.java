@@ -65,7 +65,7 @@ public class TeacherReponsitory implements ITeacherReponsitory {
         List<Teacher> teacherList = display();
         List<String> stringList = new ArrayList<>() ;
         for (int i = 0; i <teacherList.size() ; i++) {
-            if (teacherList.get(i).getId()!=id){
+            if (teacherList.get(i).getId().equals(id)){
                 stringList.add(teacherList.get(i).getInfoToCSV());
             }
         }

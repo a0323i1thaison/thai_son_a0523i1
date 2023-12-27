@@ -65,7 +65,7 @@ public class StudentReponsitory implements IStudentReponsitory{
         List<Studenta> studentList = display();
         List<String> stringList = new ArrayList<>() ;
         for (int i = 0; i <studentList.size() ; i++) {
-            if (studentList.get(i).getId()!=id){
+            if (studentList.get(i).getId().equals(id)){
                 stringList.add(studentList.get(i).getInfoToCSV());
             }
         }
