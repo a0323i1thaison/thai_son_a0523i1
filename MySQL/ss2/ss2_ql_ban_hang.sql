@@ -6,10 +6,11 @@ cName varchar(50),
 cAge datetime
 );
 create table orderr (
-oId int primary key ,
-cId int ,
+oID int primary key ,
+cid int ,
 oDate datetime,
-oTotal float
+oTotal float,
+foreign key (cid)references customer(cId)
 );
 create table product (
 pID int primary key  ,
@@ -17,5 +18,9 @@ pName varchar (50),
 pPrice float
 );
 create table orderdetail(
-oId
+oId int ,
+pId int ,
+odQTY varchar(50),
+foreign key (oId) references orderr (oID),
+foreign key (pId) references product (pID)
 );
